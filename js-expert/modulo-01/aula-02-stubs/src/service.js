@@ -4,7 +4,11 @@ class Service {
    }
 
     async getPlanets(url) {
-
+        const data = await this.makeRequest(url);
+        return {
+            name: data.name,
+            rotation_period: data.rotation_period,
+        };
     }
 }
 

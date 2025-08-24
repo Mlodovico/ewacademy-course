@@ -58,8 +58,16 @@ const PLANETS_URL_3 = "https://swapi.dev/api/planets/3/";
         };
 
         stub.withArgs(PLANETS_URL_1).resolves(mocks.tatooine);
+        stub.withArgs(PLANETS_URL_2).resolves(mocks.alderaan);
 
-        const result = await service.getPlanets(PLANETS_URL_1);
-        assert.deepEqual(result, fakeResponse);
+        {
+            const expected = {
+                name: 'Tatooine',
+                rotation_period: '23'
+            }
+
+            const result = await service.getPlanets(PLANETS_URL_1);
+            assert.strictEqual(result, expected);
+        }
     }
 })()
