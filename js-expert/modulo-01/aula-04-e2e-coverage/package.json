@@ -1,0 +1,23 @@
+{
+  "name": "aula-02-stubs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/api.js",
+    "test": "npx mocha -w src/*.test.js"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "sinon": "^15.0.1",
+    "supertest": "^7.1.4"
+  },
+  "devDependencies": {
+    "mocha": "^11.7.1"
+  }
+}
