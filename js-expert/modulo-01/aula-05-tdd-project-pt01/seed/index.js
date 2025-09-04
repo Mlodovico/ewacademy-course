@@ -18,6 +18,7 @@ const carCategory = new CarCategory({
 });
 
 const cars = [];
+const customers = [];
 carCategory.carIds = [];
 
 for(let index = 0; index < ITEMS_AMOUNT; index++) {
@@ -30,16 +31,26 @@ for(let index = 0; index < ITEMS_AMOUNT; index++) {
 
     carCategory.carIds.push(car.id);
     cars.push(car);
+
+    const customer = new Customer({
+        id: faker.datatype.uuid(),
+        name: faker.name.findName(),
+        age: faker.datatype.number({ min: 18, max: 50 })
+    });
+
+    customers.push(customer)
 }
 
 const write = (filename, data) => writeFile(join(seederBaseFolder, filename), JSON.stringify(data));
 
 ;(async () => {
     await write('cars.json', cars);
+    await write('customers.json', customers);
     await write('carCategories.json', [carCategory]);
 
     console.log('Database seeded with success!');
 
     console.log("Cars:", cars);
+    console.log("Customers:", customers);
     console.log("CarCategory:", [carCategory]);
 })();
