@@ -1,1 +1,14 @@
-[{"id":"89cce0b2-a7a9-48d9-8152-f63e4accfd8e","name":"Spyder","releaseYear":2025,"gasAvailable":false},{"id":"b62d3796-a782-45b8-bf57-c0fb7c3a8077","name":"Alpine","releaseYear":2025,"gasAvailable":true}]
+[
+  {
+    "id": "89cce0b2-a7a9-48d9-8152-f63e4accfd8e",
+    "name": "Jetta",
+    "releaseYear": 2019,
+    "gasAvailable": true
+  },
+  {
+    "id": "b62d3796-a782-45b8-bf57-c0fb7c3a8077",
+    "name": "Alpine",
+    "releaseYear": 2025,
+    "gasAvailable": true
+  }
+]
