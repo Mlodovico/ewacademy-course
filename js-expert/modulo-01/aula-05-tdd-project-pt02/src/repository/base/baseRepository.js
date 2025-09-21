@@ -1,4 +1,4 @@
-const { readFile } = require('fs/promise');
+const { readFile } = require('fs/promises');
 
 class BaseRepository {
     constructor({ file }) {
