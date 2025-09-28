@@ -14,7 +14,7 @@ console.log(item, item2);
 deepStrictEqual(item, 0);
 deepStrictEqual(item2, 1);
 
-// tipo referencia aponta para o mesmo endereço de memória
+// tipo referencia copia o endereço de memória
 // e aponta para o mesmo lugar
 item2.counter++;
 deepStrictEqual(item, { counter: 1 });
