@@ -1,22 +1,36 @@
-const { deepStrictEqual } = require("assert");
 
-let couter = 0;
-let counter2 = counter;
-counter2++;
-console.log(counter, counter2);
 
-const item = {counter: 0};
-const item2 = item;
-item2.counter++;
-console.log(item, item2);
+console.assert(String(123) === '123', "explicit convertion to string");
+console.assert(123 + '' === '123', "implicit convertion to string");
 
-// tipo primitivo gera uma copia em memoria
-deepStrictEqual(item, 0);
-deepStrictEqual(item2, 1);
+if('hello' || 1) {
+    console.log('Verdadeiro');
+}
 
-// tipo referencia copia o endereço de memória
-// e aponta para o mesmo lugar
-item2.counter++;
-deepStrictEqual(item, { counter: 1 });
-item.counter++;
-deepStrictEqual(item2, { counter: 2 });
+// -----------------------------------
+
+const item = {
+    name : 'Erick',
+    age: 35,
+    // string: 1 se n for primitivo, chama o valueOf
+    toString() {
+        return `name: ${this.name}, age: ${this.age}`;
+    },
+    // number: 1 se n for primitivo, chama o toString
+    valueOf() {
+        return 1;
+    },
+    [Symbol.toPrimitive](coercionType) {
+        console.log('trying to convert to ', coercionType);
+        const types = {
+            string: JSON.stringify(this),
+            number: 123
+        }
+        return types[coercionType] || types.string;
+    }
+}
+
+console.assert(item + 0 === '{"name":"Erick","age":35}0');
+console.assert(!!item);
+
+console.assert('Ae'.concat(item) === 'Ae{"name":"Erick","age":35}');
