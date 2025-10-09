@@ -4,6 +4,8 @@ const { watch, promises: {readFile} } = require('fs');
 
 class File {
     watch(event, filename) {
+        console.log("this", this);
+        console.log("arguments", arguments);
         this.showContent(filename);
     }
 
