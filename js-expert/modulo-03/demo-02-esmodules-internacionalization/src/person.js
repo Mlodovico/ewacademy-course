@@ -23,4 +23,18 @@ export default class Person {
             to: new Intl.DateTimeFormat(language, {style: 'long', type: 'conjunction'}).format(mapDate(this.to)),
         }
     }
+
+    static generateInstanceFromString(text) {
+        const [id, vehicles, kmTraveled, from, to] = text.split(' ');
+
+        const instance = new Person({
+            id,
+            kmTraveled,
+            from,
+            to,
+            vehicles: vehicles.split(',')
+        });
+
+        return instance;
+    }
 }
