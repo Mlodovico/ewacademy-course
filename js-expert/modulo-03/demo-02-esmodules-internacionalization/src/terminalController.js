@@ -40,12 +40,17 @@ export default class TerminalController {
         this.terminal.close();
     }
 
+    updateTable(item) {
+        this.data.push(item);
+        this.print(chalkTable(this.getTableOptions(), this.data));
+    }
+
     getTableOptions() {
         return {
     leftPad: 2,
     columns: [
         { field: 'id', name: chalk.cyan('ID') },
-        { field: 'vehicle', name: chalk.magenta('Vehicles') },
+        { field: 'vehicles', name: chalk.magenta('Vehicles') },
         { field: 'hmTraveled', name: chalk.cyan('KM Traveled') },
         { field: 'from', name: chalk.cyan('From') },
         { field: 'to', name: chalk.cyan('To') },

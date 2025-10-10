@@ -15,8 +15,7 @@ terminalController.initializeTerminal(database, DEFAULT_LANGUAGE);
 
 async function mainLoop() {
     try {
-        const answer = await terminalController.question('What?')
-        console.log('Answer', answer);
+        const answer = await terminalController.question()
         if(answer === STOP_TERMINAL) {
             terminalController.closeTerminal();
             console.log('Bye bye!');
@@ -24,7 +23,7 @@ async function mainLoop() {
         }
         const person = Person.generateInstanceFromString(answer);
 
-        console.log('Person', person);
+        terminalController.updateTable(person.formatted(DEFAULT_LANGUAGE));
 
         return mainLoop();
     } catch(error) {
