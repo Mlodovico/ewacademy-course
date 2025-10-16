@@ -1,7 +1,7 @@
-import mocha from 'mocha';
-import chai from 'chai';
+"use strict";var mocha;module.link('mocha',{default(v){mocha=v}},0);var chai;module.link('chai',{default(v){chai=v}},1);var Person;module.link('../src/person.js',{default(v){Person=v}},2);
 
-import Person from '../src/person.js';
+
+
 
 const { describe, it } = mocha;
 const { expect } = chai;
@@ -28,7 +28,7 @@ describe('Person', () => {
         const person = new Person({
             id: 1,
             vehicles: ['Bike', "Car"],
-            hmTraveled: "20000",
+            hmTraveled: '20000',
             from: '2020-01-01',
             to: '2021-01-01'
         })

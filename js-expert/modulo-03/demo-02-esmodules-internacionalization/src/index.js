@@ -3,6 +3,7 @@ import TerminalController from './terminalController.js';
 import fs from 'fs';
 
 import Person from './person.js';
+import { save } from './repository.js';
 
 const database = JSON.parse(fs.readFileSync(new URL('./../database.json', import.meta.url)));
 
@@ -24,6 +25,7 @@ async function mainLoop() {
         const person = Person.generateInstanceFromString(answer);
 
         terminalController.updateTable(person.formatted(DEFAULT_LANGUAGE));
+        await save(person);
 
         return mainLoop();
     } catch(error) {
