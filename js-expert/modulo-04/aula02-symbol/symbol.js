@@ -50,3 +50,5 @@ const expected = [
     new Date(2023, 1, 1)
 ];
 
+assert.deepStrictEqual(Object.toString.call(myDate), '[object Object]');
+assert.deepStrictEqual(Object.toString.call(expected), '[object Array]');
